@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Careklik</title> 
+    
+    <script type="text/javascript">
+        var testArray=[1,2,3];
+        var testStr="4 4 5 5";
+        function getAvarage1(array) {
+            var sum=0;
+            
+            for (var i=0; i<array.length; i++ ) {
+                sum+=parseInt(array[i]);
+            }
+            console.log(sum);
+            return sum/array.length;
+        }
+        function convertToArray(str) {
+            var array=[];
+            for (var i=0; i<str.length; i++) {
+                if (!isNaN(str[i]) && str[i]!=' ') array.push(parseInt(str[i]));
+            }
+            return array;
+        }
+        function getAvarage(five,four,three,two) {
+            
+            return (five*5+four*4+three*3+two*2)/(five+four+three+two);
+        }
+        function onStrClick() {
+            var s=this.document.getElementById('str').value;
+            var a=convertToArray(s);
+            var answer=getAvarage1(a);
+            this.document.getElementById('ans1').innerHTML=answer;
+        }
+        function onGroupClick() {
+            var fi,fo,th,tw;
+            fi=Number(this.document.getElementById('fi').value);
+            fo=Number(this.document.getElementById('fo').value);
+            th=Number(this.document.getElementById('th').value);
+            tw=Number(this.document.getElementById('tw').value);
+            var answer=getAvarage(fi,fo,th,tw);
+            this.document.getElementById('ans2').innerHTML=answer;
+        }
+        function clr(num) {
+           
+            if (num===1)  {this.document.getElementById('str').value=""; this.document.getElementById('ans1').innerHTML="" ; return}
+            this.document.getElementById('fi').value="";
+            this.document.getElementById('fo').value="";
+            this.document.getElementById('th').value="";
+            this.document.getElementById('tw').value="";
+            this.document.getElementById('ans2').innerHTML="";
+        }
+    </script>
+</head>
+  <body style="background-color:#F1F1F1 ; width:99%; height:99%;">
+      <div style="width:auto; margin-right:5px; margin-top:-3px; margin-left:5px; color:white;  height:60px; background-color:#3367D6; font-size:30px; text-align:center"> 
+         Cäryeklik hasaplamak
+         <div style="margin-right:10px; text-align:right; font-size:12px; margin-top:5px;">Y.Sahatow </div>
+      </div>
+     <div style=" padding-left:15px;float:left; background-color:white; height:500px; width:600px; margin-top:20px; border:1px solid #3367D6 ; box-shadow: 4px 3px 3px  #3367D6"> 
+        <h2>Bahalary yzygider yazyn meselem :"3 4 5 5 5" </h2>
+        <h3>Okuwcynyn bahalary: <input type="text" id=str style="font-size:22px; width:300px; " placeholder="bahalary girizin"> <button onclick="clr(1)">X</button></h3>
+        <button onclick="onStrClick()" style="margin-left:200px; font-size:26px; background-color:#3367D6; color:white">Hasapla</button>
+        <h2>Ortaca baha: <h3 id=ans1></h3></h2>
+     </div>
+     <div style="float:right; padding-left:15px; background-color:white; height:500px; width:600px; margin-top:20px; border:1px solid #3367D6 ; box-shadow: 4px 3px 3px  #3367D6; margin-right:5px;"> 
+        <h3>Okuwcynyn bahalary:  <button onclick="clr(2)">X</button></h3>
+        <h4>5-lik sany: <input id=fi type="number" style=" margin-left:5px;font-size:22px; width:50px"></h4>
+        <h4>4-lik sany: <input id=fo type="number" style="margin-left:5px;font-size:22px; width:50px"></h4>
+        <h4>3-lik sany: <input id=th type="number" style="margin-left:5px;font-size:22px; width:50px"></h4>
+        <h4>2-lik sany: <input id=tw type="number" style="margin-left:5px;font-size:22px; width:50px"></h4>
+         <button onclick="onGroupClick()" style="margin-left:200px; font-size:26px; background-color:#3367D6; color:white">Hasapla</button>
+        <h2>Ortaca baha: <h3 id=ans2></h3></h2>
+     </div>
+     
+    </body>
+    </html>
